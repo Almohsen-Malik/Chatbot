@@ -1,0 +1,70 @@
+body {
+  background: #96f2d0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+main {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 0px;
+  min-width: 50%;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#chat_header {
+  background: #510a8b;
+  color: #ffffff;
+  text-align: center;
+
+}
+
+h1 {
+  margin: 0px;
+}
+
+#chat {
+  padding: 0px;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+#user_input {
+  align-self: flex-end;
+  border: 3px solid #510a8b;
+}
+
+#bot {
+  align-self: flex-start;
+}
+
+#human {
+  align-self: flex-end;
+}
+
+ul {}
+
+textarea {
+  height: 5rem;
+  width: 100%;
+}
+
+
+/* Mobile responsiveness - make main take full screen */
+@media (max-width: 900px) {
+  body {
+    padding: 0;
+  }
+
+  main {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+    min-width: 100%;
+  }
+}
