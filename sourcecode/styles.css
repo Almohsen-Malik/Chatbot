@@ -1,10 +1,11 @@
 body {
-  background: #96f2d0;
+  background: #f0f4f8;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 main {
@@ -13,45 +14,112 @@ main {
   padding: 0px;
   min-width: 50%;
   height: 80vh;
+  width: 80vh;
   display: flex;
   flex-direction: column;
 }
 
 #chat_header {
-  background: #510a8b;
+  background: #2563eb;
   color: #ffffff;
   text-align: center;
-
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px 10px 0px 0px;
 }
 
 h1 {
   margin: 0px;
+  border-radius: inherit;
 }
 
 #chat {
   padding: 0px;
-  /* display: flex;
-  flex-direction: row; */
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+#bot {
+  background-color: #e2e8f0;
+  border-radius: 10px 10px 10px 0px;
+  max-width: 75%;
+  padding: 15px;
+  margin: 10px;
+  width: auto;
+  justify-self: flex-start;
+}
+
+#human {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-radius: 10px 10px 0px 10px;
+  max-width: 75%;
+  padding: 15px;
+  margin: 10px;
+  width: auto;
+  justify-self: flex-end;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0px;
+}
+
+
+li.bot_message {
+  display: flex;
+}
+
+li.bot_message span {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+li.bot_message span svg {
+  align-self: center;
+  margin: 10px 0 5px 10px;
 }
 
 #user_input {
   align-self: flex-end;
-  border: 3px solid #510a8b;
-}
-
-#bot {
-  align-self: flex-start;
-}
-
-#human {
-  align-self: flex-end;
-}
-
-ul {}
-
-textarea {
-  height: 5rem;
+  display: flex;
+  border-top: 1px solid #d7dad9;
+  height: 10%;
   width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+#user_input textarea {
+  height: 100%;
+  width: 94%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+  border-radius: inherit;
+}
+
+#user_input button {
+  align-self: center;
+  border: none;
+  color: #000;
+  background-color: white;
+  padding: 10px;
+  margin: 10px;
+}
+
+#user_input button:hover {
+  cursor: pointer;
+  color: #2563eb;
 }
 
 
@@ -66,5 +134,9 @@ textarea {
     width: 100vw;
     border-radius: 0;
     min-width: 100%;
+  }
+
+  #chat_header {
+    border-radius: 0;
   }
 }
