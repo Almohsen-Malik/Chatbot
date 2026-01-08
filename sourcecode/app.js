@@ -1,65 +1,73 @@
-// grab the input to get the message
+// ============================================
+// DOM Elements
+// ============================================
 const userMessage = document.querySelector('textarea');
-// grab the chat to append the message
 const chat = document.querySelector('#chat');
-// grab button
-const sendBtn = document.querySelector('#user_input button')
+const sendBtn = document.querySelector('#user_input button');
 
-// greet function to display actions
-function greet() {
-    const greeting = 'Hello! How can I help you today?\n1. Track order\n2. Cancel order\n3. Talk to a human'
-    appendMessage(greeting, false)
-}
-
-greet()
-
-// function to add bot icon
+// ============================================
+// UI Utilities
+// ============================================
 function addBotIcon() {
-    const botIcon = document.createElement('span')
-    const botIconImg = document.createElement('img')
-    botIconImg.src = 'robot.svg'
-    botIconImg.alt = 'bot'
-    botIcon.append(botIconImg)
-    return botIcon
+    const botIcon = document.createElement('span');
+    const botIconImg = document.createElement('img');
+    botIconImg.src = 'robot.svg';
+    botIconImg.alt = 'bot';
+    botIcon.append(botIconImg);
+    return botIcon;
 }
 
-// appends a newly typed message to the chat section
+function autoScroll() {
+    chat.scrollTop = chat.scrollHeight;
+}
+
+// ============================================
+// Message Handling
+// ============================================
 function appendMessage(msg, isHuman) {
-    // create a new li element
     const newLi = document.createElement('li');
-    // create a paragraph inside li
-    const newLiPara = document.createElement('p')
-    // add iiner text to the li element
-    newLiPara.innerText = msg
+    const newLiPara = document.createElement('p');
+    newLiPara.innerText = msg;
 
     if (isHuman) {
-        // add classes
         newLi.classList.add('human_message');
         newLiPara.classList.add('human');
-    }
-    else {
-        // add classes
+    } else {
         newLi.classList.add('bot_message');
         newLiPara.classList.add('bot');
-        newLi.append(addBotIcon())
+        newLi.append(addBotIcon());
     }
 
-    // append
-    newLi.append(newLiPara)
-    chat.append(newLi)
-    autoScroll()
+    newLi.append(newLiPara);
+    chat.append(newLi);
+    autoScroll();
 }
 
-// event listener for button
+function handleUserResponse() {
+    const userInput = userMessage.value;
+    console.log(userInput);
+    appendMessage(`you typed: ${userInput}`, false);
+}
+
+// ============================================
+// Bot Interactions
+// ============================================
+function greet() {
+    const greeting = 'Hello! How can I help you today?\n1. Track order\n2. Cancel order\n3. Talk to a human';
+    appendMessage(greeting, false);
+}
+
+// ============================================
+// Event Listeners
+// ============================================
 sendBtn.addEventListener('click', function () {
-    appendMessage(userMessage.value, true)
-    //clear input
-    userMessage.value = ''
-    userMessage.focus()
-    greet()
-})
+    appendMessage(userMessage.value, true);
+    handleUserResponse();
+    userMessage.value = '';
+    userMessage.focus();
+});
 
-// add auto scroll
-function autoScroll() {
-    chat.scrollTop = chat.scrollHeight
-}
+// ============================================
+// Initialize
+// ============================================
+greet();
