@@ -4,6 +4,7 @@
 const userMessage = document.querySelector('textarea');
 const chat = document.querySelector('#chat');
 const sendBtn = document.querySelector('#user_input button');
+// test
 
 // ============================================
 // UI Utilities
